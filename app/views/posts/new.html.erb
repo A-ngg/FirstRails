@@ -1,0 +1,32 @@
+<% content_for :title, "New Post" %>
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+          <h2 class="mb-0">📝 Create a New Post</h2>
+        </div>
+        <div class="card-body">
+            <%= form_with(model: @post, url: posts_path, local: true) do |form| %>
+
+            <div class="mb-3">
+              <%= form.label :title, class: "form-label fw-bold" %>
+              <%= form.text_field :title, class: "form-control", placeholder: "Enter post title", required: true %>
+            </div>
+
+            <div class="mb-3">
+              <%= form.label :content, class: "form-label fw-bold" %>
+              <%= form.text_area :content, class: "form-control", rows: 5, placeholder: "Write your content here...", required: true %>
+            </div>
+
+            <div class="text-center">
+              <%= form.submit "Create Post", class: "btn btn-lg btn-success shadow" %>
+              <%= link_to "Cancel", root_path, class: "btn btn-lg btn-secondary ms-2" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

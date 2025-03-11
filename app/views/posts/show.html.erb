@@ -1,0 +1,27 @@
+<% content_for :title, @post.title %>
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+          <h2><%= @post.title %></h2>
+        </div>
+        <div class="card-body">
+          <p class="fw-bold"><strong>✏️ Content:</strong></p>
+          <p class="card-text"><%= @post.content %></p>
+          
+          <hr>
+          <p class="text-muted"><strong>👤 Author:</strong> <%= @post.user.email %></p>
+
+          <div class="d-flex justify-content-between mt-3">
+            <%= link_to "✏ Edit Post", edit_post_path(@post), class: "btn btn-warning" %>
+            <%= link_to "⬅ Back to Posts", root_path, class: "btn btn-secondary" %>
+            <%= link_to "🗑 Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
