@@ -24,7 +24,7 @@ class PostsController < ApplicationController
   # POST /posts
   def create
     puts "DEBUG PARAMS: #{params.inspect}"  # Add this line to check incoming params
-  
+
     @post = current_user.posts.build(post_params)
     if @post.save
       redirect_to root_path, notice: "Post created successfully!"
@@ -32,7 +32,7 @@ class PostsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-  
+
 
   # PATCH/PUT /posts/1
   def update
