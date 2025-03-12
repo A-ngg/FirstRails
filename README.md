@@ -1,7 +1,10 @@
 <<<<<<< HEAD
 # FirstRails
-   Create a Rails app with a Log in using Devise gem, where users can create, edit, and delete blog posts.
-   Run rails g scaffold Post title:string content:text to generate the basic structure.
+    Comment System for Blog Posts
+
+   Extend the blog project by adding comments to posts.
+   Generate a Comment model with content:text post:references.
+   Display comments under each post.
 =======
 # README
 
