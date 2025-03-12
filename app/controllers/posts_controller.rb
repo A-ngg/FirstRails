@@ -5,11 +5,13 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.all
+    @posts = Post.includes(:user, :comments).all
   end
 
   # GET /posts/1
   def show
+    @post = Post.find(params[:id])
+    @comments = @post.comments   # ✅ This ensures @comments is not nil
   end
 
   # GET /posts/new
@@ -32,7 +34,6 @@ class PostsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-
 
   # PATCH/PUT /posts/1
   def update

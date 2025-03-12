@@ -64,4 +64,10 @@
     background: linear-gradient(45deg, #218838, #1e7e34);
     transform: scale(1.05);
   }
+  
+  .comment-box {
+    border-left: 4px solid #007bff;
+    padding: 10px;
+  }
+  
     

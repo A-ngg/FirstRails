@@ -25,3 +25,55 @@
   </div>
 </div>
 
+<!-- Comments Section -->
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-lg">
+        <div class="card-header bg-dark text-white">
+          <h3>💬 Comments</h3>
+        </div>
+        <div class="card-body">
+          <% if @comments.any? %>
+            <% @comments.each do |comment| %>
+              <div class="border-bottom mb-3 pb-2">
+                <p><strong><%= comment.user&.name || comment.user&.email || "Anonymous" %>:</strong></p>
+                <p><%= comment.content %></p>
+                <div class="d-flex gap-2">
+                  <%= link_to '✏ Edit', edit_post_comment_path(@post, comment), class: "btn btn-sm btn-outline-primary" %>
+                  <%= form_with model: [@post, comment], method: :delete, local: true, class: "d-inline" do |form| %>
+                    <%= form.submit "🗑 Delete", class: "btn btn-sm btn-outline-danger", data: { confirm: 'Are you sure?' } %>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <p class="text-muted">No comments yet.</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add Comment Form -->
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-lg">
+        <div class="card-header bg-success text-white">
+          <h3>📝 Add a Comment</h3>
+        </div>
+        <div class="card-body">
+          <%= form_with(model: [@post, Comment.new], local: true) do |form| %>
+            <div class="mb-3">
+              <%= form.label :content, "Your Comment", class: "form-label" %>
+              <%= form.text_area :content, class: "form-control", rows: 3 %>
+            </div>
+            <%= form.submit "Post Comment", class: "btn btn-success" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
