@@ -54,67 +54,68 @@
   }
 </style>
 
-<!-- New Post Input (Only for Logged-in Users) -->
-<% if user_signed_in? %>
-  <div class="card p-4 mb-4 shadow-sm border-0">
-    <h4 class="mb-3 text-primary">✏️ Create a New Post</h4>
-    <%= form_with(url: posts_path, method: :post, local: true) do |f| %>
+<div class="blog-background"> 
+  <!-- New Post Input (Only for Logged-in Users) -->
+  <% if user_signed_in? %>
+    <div class="card p-4 mb-4 shadow-sm border-0">
+      <h4 class="mb-3 text-primary">✏️ Create a New Post</h4>
+      <%= form_with(url: posts_path, method: :post, local: true) do |f| %>
 
-      <!-- Title Input -->
-      <div class="form-group mb-3">
-        <%= f.label :title, "Title", class: "fw-bold text-secondary" %>
-        <%= f.text_field :title, placeholder: "Enter your post title...", 
-            class: "form-control bg-light border-0 rounded-3 px-4 py-2", 
-            required: true %>
-      </div>
+        <!-- Title Input -->
+        <div class="form-group mb-3">
+          <%= f.label :title, "Title", class: "fw-bold text-secondary" %>
+          <%= f.text_field :title, placeholder: "Enter your post title...", 
+              class: "form-control bg-light border-0 rounded-3 px-4 py-2", 
+              required: true %>
+        </div>
 
-      <!-- Content Input -->
-      <div class="form-group mb-3">
-        <%= f.label :content, "Content", class: "fw-bold text-secondary" %>
-        <%= f.text_area :content, placeholder: "Share your thoughts...", 
-            class: "form-control bg-light border-0 rounded-3 px-4 py-3", 
-            rows: 2, style: "resize: none;", required: true %>
-      </div>
+        <!-- Content Input -->
+        <div class="form-group mb-3">
+          <%= f.label :content, "Content", class: "fw-bold text-secondary" %>
+          <%= f.text_area :content, placeholder: "Share your thoughts...", 
+              class: "form-control bg-light border-0 rounded-3 px-4 py-3", 
+              rows: 2, style: "resize: none;", required: true %>
+        </div>
 
-      <div class="d-flex justify-content-end">
-        <%= f.submit "Post", class: "btn btn-primary rounded-pill px-4 shadow-sm" %>
-      </div>
-
-    <% end %>
-  </div>
-<% end %>
-
-<!-- Posts Section -->
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <h1>All Posts</h1>
-      <% @posts.each do |post| %>
-        <div class="card post-card p-4 mb-4 border-0">
-          <div class="post-header">
-            <div class="profile-pic">
-              <%= post.user.email.first.upcase %>
-            </div>
-            <div>
-              <p class="post-title mb-0"><%= link_to post.title, post %></p>
-              <small class="text-muted">By <%= post.user.email %> | <%= time_ago_in_words(post.created_at) %> ago</small>
-            </div>
-          </div>
-          <hr>
-          <p class="post-content mb-3"><%= truncate(post.content, length: 200) %></p>
-          <%= link_to "Read More", post_path(post), class: "btn btn-sm btn-outline-primary read-more rounded-pill px-3" %>
-
-          <hr>
-          <h5>Comments:</h5>
-          <% if post.comments.any? %>
-            <% post.comments.each do |comment| %>
-              <p><strong><%= comment.user.name || comment.user.email %>:</strong> <%= comment.content %></p>
-            <% end %>
-          <% else %>
-            <p>No comments yet.</p>
-          <% end %>
+        <div class="d-flex justify-content-end">
+          <%= f.submit "Post", class: "btn btn-primary rounded-pill px-4 shadow-sm" %>
         </div>
       <% end %>
+    </div>
+  <% end %>
+
+  <!-- Posts Section -->
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <h1>All Posts</h1>
+        <% @posts.each do |post| %>
+          <div class="card post-card p-4 mb-4 border-0">
+            <div class="post-header">
+              <div class="profile-pic">
+                <%= post.user.email.first.upcase %>
+              </div>
+              <div>
+                <p class="post-title mb-0"><%= link_to post.title, post %></p>
+                <small class="text-muted">By <%= post.user.email %> | <%= time_ago_in_words(post.created_at) %> ago</small>
+              </div>
+            </div>
+            <hr>
+            <p class="post-content mb-3"><%= truncate(post.content, length: 200) %></p>
+            <%= link_to "Read More", post_path(post), class: "btn btn-sm btn-outline-primary read-more rounded-pill px-3" %>
+
+            <hr>
+            <h5>Comments:</h5>
+            <% if post.comments.any? %>
+              <% post.comments.each do |comment| %>
+                <p><strong><%= comment.user.name || comment.user.email %>:</strong> <%= comment.content %></p>
+              <% end %>
+            <% else %>
+              <p>No comments yet.</p>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

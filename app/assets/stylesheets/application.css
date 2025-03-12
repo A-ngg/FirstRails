@@ -12,62 +12,154 @@
  @import "bootstrap";
 
  /* Fullscreen background */
-.blog-header {
-    background: url('https://source.unsplash.com/1600x900/?blog,writing') no-repeat center center/cover;
-    padding: 100px 20px;
-    color: white;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-  }
-  
-  /* Smooth hover effect on posts */
-  .post-card {
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
-    border-radius: 15px;
-  }
-  
-  .post-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Stylish buttons */
-  .btn-success {
-    background: linear-gradient(45deg, #28a745, #218838);
-    border: none;
-    padding: 12px 25px;
-    transition: 0.3s ease-in-out;
-  }
-  
-  .btn-success:hover {
-    background: linear-gradient(45deg, #218838, #1e7e34);
-    transform: scale(1.05);
-  }
+ body {
+   background: url('https://img.freepik.com/free-photo/blue-surface-with-study-tools_23-2147864592.jpg') 
+               no-repeat center center/cover;
+   background-size: cover;
+   background-attachment: fixed;
+   font-family: 'Arial', sans-serif;
+   color: #333;
+ }
+ 
+ /* Blog Page Background */
+ .blog-background {
+   background: url('https://img.freepik.com/free-photo/blue-surface-with-study-tools_23-2147864592.jpg') 
+               no-repeat center center;
+   background-size: cover;
+   background-attachment: fixed;
+   font-family: 'Arial', sans-serif;
+   min-height: 100vh;
+   width: 100%;
+ }
+ 
+ /* Smooth hover effect on posts */
+ .post-card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+  border-radius: 15px;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+ 
+ /* Stylish buttons */
+ .btn-success {
+   background: linear-gradient(45deg, #28a745, #218838);
+   border: none;
+   padding: 12px 25px;
+   transition: 0.3s ease-in-out;
+ }
+ 
+ .btn-success:hover {
+   background: linear-gradient(45deg, #218838, #1e7e34);
+   transform: scale(1.05);
+ }
+ 
+ .btn-warning {
+   background: linear-gradient(45deg, #ffc107, #e0a800);
+   border: none;
+   padding: 12px 25px;
+   transition: 0.3s ease-in-out;
+ }
+ 
+ .btn-warning:hover {
+   background: linear-gradient(45deg, #e0a800, #c69500);
+   transform: scale(1.05);
+ }
+ 
+ .btn-danger {
+   background: linear-gradient(45deg, #dc3545, #c82333);
+   border: none;
+   padding: 12px 25px;
+   transition: 0.3s ease-in-out;
+ }
+ 
+ .btn-danger:hover {
+   background: linear-gradient(45deg, #c82333, #bd2130);
+   transform: scale(1.05);
+ }
+ 
+ .btn-secondary {
+   background: linear-gradient(45deg, #6c757d, #5a6268);
+   border: none;
+   padding: 12px 25px;
+   transition: 0.3s ease-in-out;
+ }
+ 
+ .btn-secondary:hover {
+   background: linear-gradient(45deg, #5a6268, #4e555b);
+   transform: scale(1.05);
+ }
+ 
  /* Card Styling */
  .card {
-    border-radius: 15px;
-  }
-  
-  .card-header {
-    border-radius: 15px 15px 0 0;
-  }
-  
-  /* Button Styling */
-  .btn-success {
-    background: linear-gradient(45deg, #28a745, #218838);
-    border: none;
-    padding: 12px 25px;
-    transition: 0.3s ease-in-out;
-  }
-  
-  .btn-success:hover {
-    background: linear-gradient(45deg, #218838, #1e7e34);
-    transform: scale(1.05);
-  }
-  
-  .comment-box {
-    border-left: 4px solid #007bff;
-    padding: 10px;
-  }
-  
-    
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+ }
+ 
+ .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+ }
+ 
+ .card-header {
+  border-radius: 15px 15px 0 0;
+  font-weight: bold;
+  font-size: 1.25rem;
+  background-color: #f8f9fa;
+  padding: 10px 15px;
+ }
+ 
+ /* Comment Box Styling */
+ .comment-box {
+   border-left: 4px solid #007bff;
+   padding: 10px;
+   background-color: #f8f9fa;
+   border-radius: 5px;
+   margin-bottom: 15px;
+ }
+ 
+ /* Navbar Styling */
+ .navbar {
+  background: linear-gradient(45deg, #343a40, #23272b);
+  padding: 10px 20px;
+  border-radius: 10px;
+ }
+ 
+ .navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffc107;
+ }
+ 
+ .nav-link {
+  color: white !important;
+  transition: color 0.3s ease-in-out;
+  padding: 8px 15px;
+  border-radius: 5px;
+ }
+ 
+ .nav-link:hover {
+  color: #ffc107 !important;
+  background-color: rgba(255, 193, 7, 0.1);
+ }
+ 
+ /* General Layout */
+ .container {
+  max-width: 960px;
+  padding: 15px;
+ }
+ 
+ .mt-5 {
+  margin-top: 3rem !important;
+ }
+ 
+ .pt-5 {
+  padding-top: 3rem !important;
+ }
+ 
