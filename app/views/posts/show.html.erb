@@ -17,7 +17,7 @@
           <div class="d-flex justify-content-between mt-3">
             <%= link_to "✏ Edit Post", edit_post_path(@post), class: "btn btn-warning" %>
             <%= link_to "⬅ Back to Posts", root_path, class: "btn btn-secondary" %>
-            <%= link_to "🗑 Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+            <%= button_to "🗑 Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
           </div>
         </div>
       </div>
